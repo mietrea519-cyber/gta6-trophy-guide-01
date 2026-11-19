@@ -1,0 +1,204 @@
+/* Leonida Ledger — an original dusk-ledger look: deep harbour navy, warm paper ink,
+   one coral accent, and medal swatches for the four grades. No images, no webfonts,
+   nothing loaded from anywhere else. */
+
+:root {
+  --bg: #0e141d;
+  --panel: #16202e;
+  --panel-2: #1b2839;
+  --ink: #f2ede2;
+  --muted: #9fb0c1;
+  --line: #2a3a4f;
+  --accent: #ff6b4a;
+  --accent-ink: #1a0f0a;
+  --platinum: #d9e4ef;
+  --gold: #d9b45c;
+  --silver: #b9c2cc;
+  --bronze: #cf9061;
+  --danger: #ffb454;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+h1, h2, h3, .progress-big {
+  font-family: Georgia, "Palatino Linotype", "Book Antiqua", serif;
+  font-weight: 600;
+}
+
+.masthead {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 26px 32px 18px;
+  border-bottom: 3px solid var(--accent);
+  background: linear-gradient(160deg, #14202f 0%, #0e141d 70%);
+}
+
+.brand { max-width: 640px; }
+.brand-kicker { margin: 0 0 4px; color: var(--accent); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.brand h1 { margin: 0; font-size: 42px; line-height: 1.05; }
+.brand-sub { margin: 8px 0 0; color: var(--muted); max-width: 56ch; }
+
+.progress-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  min-width: 280px;
+}
+.progress-big { font-size: 30px; }
+.progress-of { font-size: 16px; color: var(--muted); }
+.progress-bar { height: 10px; background: #0a0f16; border-radius: 6px; overflow: hidden; margin: 8px 0 4px; }
+.progress-fill { height: 100%; background: var(--accent); width: 0; transition: width 0.2s ease; }
+.progress-pct { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.grade-counts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; font-size: 13px; }
+.grade-counts strong { float: right; }
+.progress-note { margin: 10px 0 0; font-size: 13px; color: var(--danger); }
+
+.swatch, .medal { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.grade-platinum { background: var(--platinum); }
+.grade-gold { background: var(--gold); }
+.grade-silver { background: var(--silver); }
+.grade-bronze { background: var(--bronze); }
+.medal { width: 18px; height: 18px; margin-top: 3px; flex: none; border: 2px solid rgba(0,0,0,0.35); }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  padding: 12px 32px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.toolbar label { font-size: 13px; color: var(--muted); }
+.toolbar input[type="search"], .toolbar select {
+  background: var(--panel-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 14px;
+}
+
+.tab, .chip, .toolbar button, .import-label {
+  background: var(--panel-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.tab.is-active, .chip.is-active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.import-label input { display: none; }
+.io-buttons { display: flex; gap: 8px; margin-left: auto; }
+.toggle { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(430px, 1.15fr) minmax(360px, 0.85fr);
+  gap: 22px;
+  padding: 20px 32px;
+  align-items: start;
+}
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+
+.list-status { color: var(--muted); font-size: 13px; margin: 0 0 10px; }
+.trophy-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.trophy-row {
+  display: flex;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+}
+.trophy-row.grade-row-platinum { border-left-color: var(--platinum); }
+.trophy-row.grade-row-gold { border-left-color: var(--gold); }
+.trophy-row.grade-row-silver { border-left-color: var(--silver); }
+.trophy-row.grade-row-bronze { border-left-color: var(--bronze); }
+.trophy-row.is-earned { opacity: 0.72; }
+.trophy-row input[type="checkbox"] { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--accent); flex: none; }
+.trophy-main { flex: 1; min-width: 0; }
+.trophy-name {
+  background: none; border: none; color: var(--ink); font: inherit; font-weight: 600;
+  font-size: 16px; padding: 0; cursor: pointer; text-align: left;
+}
+.trophy-name:hover { color: var(--accent); }
+.is-earned .trophy-name { text-decoration: line-through; }
+.trophy-desc { margin: 2px 0 6px; color: var(--muted); font-size: 13.5px; }
+.trophy-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+.badge { font-size: 11px; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); text-transform: uppercase; }
+.badge-grade { color: var(--ink); font-weight: 700; }
+.grade-text-platinum { border-color: var(--platinum); }
+.grade-text-gold { border-color: var(--gold); color: var(--gold); }
+.grade-text-silver { border-color: var(--silver); color: var(--silver); }
+.grade-text-bronze { border-color: var(--bronze); color: var(--bronze); }
+.badge-missable { border-color: var(--danger); color: var(--danger); font-weight: 700; }
+.badge-hidden { border-style: dashed; }
+.trophy-count { font-variant-numeric: tabular-nums; color: var(--ink); font-size: 12.5px; }
+.count-btn {
+  background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+  width: 22px; height: 22px; border-radius: 6px; cursor: pointer; line-height: 1;
+}
+.count-stepper { display: inline-flex; gap: 4px; }
+
+.guide-pane {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  position: sticky;
+  top: 76px;
+}
+.guide-kicker { margin: 0; color: var(--accent); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+.guide-title { margin: 4px 0 8px; font-size: 26px; line-height: 1.15; }
+.guide-official-label { margin: 14px 0 2px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.guide-official { margin: 0; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--panel-2); font-style: italic; }
+.guide-text { font-size: 15px; }
+.guide-stepper { display: flex; gap: 10px; align-items: center; margin-top: 12px; }
+.missable-note { border: 1px solid var(--danger); border-radius: var(--radius); padding: 10px 12px; margin-top: 12px; font-size: 13.5px; }
+.guide-stage { color: var(--muted); font-size: 13.5px; }
+.guide-sources { font-size: 13px; color: var(--muted); padding-left: 18px; }
+.guide-sources a { color: var(--accent); }
+.guide-toggle {
+  margin-top: 14px; background: var(--accent); color: var(--accent-ink); border: none;
+  border-radius: 999px; padding: 9px 18px; font-weight: 700; cursor: pointer; font-size: 14px;
+}
+
+.roadmap { padding: 20px 32px; }
+.roadmap-intro { color: var(--muted); max-width: 78ch; }
+.stage { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 14px; }
+.stage-head { display: flex; justify-content: space-between; align-items: baseline; }
+.stage-head h3 { margin: 0; font-size: 19px; }
+.stage-progress { color: var(--muted); font-variant-numeric: tabular-nums; }
+.stage-bar { margin: 8px 0; }
+.stage-blurb { color: var(--muted); margin: 6px 0 10px; max-width: 82ch; }
+.stage-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.stage-chip {
+  background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 999px; padding: 4px 11px; font-size: 12.5px; cursor: pointer;
+}
+.stage-chip.is-earned { opacity: 0.6; text-decoration: line-through; }
+.stage-missables { color: var(--danger); font-size: 13px; margin: 10px 0 0; }
+
+.empty-note { color: var(--muted); }
+.colophon { padding: 18px 32px 30px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+.colophon strong { color: var(--ink); }
