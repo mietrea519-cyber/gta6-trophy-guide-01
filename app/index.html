@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="brand">
+    <p class="brand-kicker">An offline guide &amp; tracker for Grand Theft Auto VI · PlayStation 5</p>
+    <h1>Leonida Ledger</h1>
+    <p class="brand-sub">All 55 official trophies — 1 platinum, 2 gold, 6 silver, 46 bronze, 28 hidden — each with a guide in our own words that cites its sources, a roadmap to the platinum, and every missable flagged.</p>
+  </div>
+  <div class="progress-panel" id="progress-panel">
+    <div class="progress-big"><span id="earned-count">0</span><span class="progress-of"> / 55 earned</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <p class="progress-pct" id="progress-pct">0% of the list</p>
+    <ul class="grade-counts" id="grade-counts">
+      <li><span class="swatch grade-platinum"></span>Platinum <strong id="count-platinum">0 / 1</strong></li>
+      <li><span class="swatch grade-gold"></span>Gold <strong id="count-gold">0 / 2</strong></li>
+      <li><span class="swatch grade-silver"></span>Silver <strong id="count-silver">0 / 6</strong></li>
+      <li><span class="swatch grade-bronze"></span>Bronze <strong id="count-bronze">0 / 46</strong></li>
+    </ul>
+    <p class="progress-note" id="missable-note">Missables still open: 3</p>
+  </div>
+</header>
+
+<nav class="toolbar" id="toolbar">
+  <div class="view-tabs" role="tablist">
+    <button type="button" class="tab is-active" id="tab-checklist">Checklist &amp; guides</button>
+    <button type="button" class="tab" id="tab-roadmap">Roadmap to the platinum</button>
+  </div>
+  <label class="search-box">Search <input id="search" type="search" placeholder="trophy, mission, place…"></label>
+  <div class="kind-chips" id="kind-chips">
+    <button type="button" class="chip is-active" data-kind="all">All</button>
+    <button type="button" class="chip" data-kind="story">Story</button>
+    <button type="button" class="chip" data-kind="missable">Missable</button>
+    <button type="button" class="chip" data-kind="collectibles">Collectibles</button>
+    <button type="button" class="chip" data-kind="activities">Activities</button>
+    <button type="button" class="chip" data-kind="online">Online</button>
+  </div>
+  <label>Grade
+    <select id="grade-filter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="toggle"><input type="checkbox" id="spoiler-toggle"> Spoiler shield: hide story trophies until earned</label>
+  <label class="toggle"><input type="checkbox" id="hide-earned-toggle"> Hide earned</label>
+  <div class="io-buttons">
+    <button type="button" id="export-btn">Export progress</button>
+    <label class="import-label">Import progress <input type="file" id="import-file" accept="application/json"></label>
+    <button type="button" id="reset-btn">Reset</button>
+  </div>
+</nav>
+
+<main class="layout" id="checklist-view">
+  <section class="checklist-pane">
+    <p class="list-status" id="list-status"></p>
+    <ol class="trophy-list" id="trophy-list"></ol>
+    <p class="empty-note" id="empty-note" hidden>No trophies match. The official list has no online trophies, so the Online filter is empty by design — everything on the list is earned in the game itself.</p>
+  </section>
+  <aside class="guide-pane" id="guide-pane">
+    <div class="guide-empty" id="guide-empty">
+      <h2>Pick a trophy</h2>
+      <p>Its official description, a guide in our own words, the sources the guide rests on, and its place in the roadmap appear here.</p>
+      <p>Progress is saved in this browser. Export it to a file any time and import it back on another machine — the guide itself never leaves your device and never touches the network.</p>
+    </div>
+    <article class="guide-card" id="guide-card" hidden></article>
+  </aside>
+</main>
+
+<section class="roadmap" id="roadmap-view" hidden>
+  <h2>Roadmap to the platinum</h2>
+  <p class="roadmap-intro">Seven stages, built from the official descriptions: story first with the flagged moments called out while you pass them, then the stranger strands, the collectible sweep, the activity grind, the money stage, and cleanup to 100%. Missable flags are this guide's inferences from the descriptions — each flag says why, and none is presented as confirmed.</p>
+  <div id="roadmap-stages"></div>
+</section>
+
+<footer class="colophon">
+  <p><strong>About this guide.</strong> Trophy names, descriptions and grades are the official PlayStation ones, as listed by Exophase and PSNProfiles; counts are the progress targets PlayStation tracks, as listed by PSNProfiles. Guides are original text written for this guide from those descriptions — where a step is inferred rather than stated, the guide says so. Roadmap order and missable flags are built from the official descriptions. No Rockstar Games logo, artwork or game screenshots are used; the look is this guide's own.</p>
+  <p>Leonida Ledger · works fully offline · progress lives in your browser's local storage</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
